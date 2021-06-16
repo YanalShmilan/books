@@ -6,6 +6,7 @@ import MembersList from './components/MembersList';
 import MemberDetails from './components/MemberDetails';
 import BooksList from './components/BooksList';
 import BooksDetails from './components/BooksDetails';
+import BookItem from './components/BookItem';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         </Route>
 
         <Route path="/">
+          <BookItem />
           <MembersList />
           <BooksList />
         </Route>
