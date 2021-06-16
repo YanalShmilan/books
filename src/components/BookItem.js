@@ -35,7 +35,13 @@ const BookItem = (props) => {
         <figcaption>
           <h1>{book.title}</h1>
           <span>By {book.author}</span>
-          <p>{book.available ? 'available' : 'Not available'}</p>
+          <p>
+            {book.available ? (
+              <span style={{ color: 'green' }}>available</span>
+            ) : (
+              <span style={{ color: 'red' }}>Not available</span>
+            )}
+          </p>
         </figcaption>
       </figure>
     </center>

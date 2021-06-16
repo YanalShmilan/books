@@ -793,10 +793,9 @@ figcaption p {
   }
 }
 .book-list {
-  align-self: center;
   display: flex;
+  margin-right: 10%;
   flex-wrap: wrap;
-  align-items: center;
 }
 .book-item {
   width: 100%;
@@ -804,4 +803,13 @@ figcaption p {
 }
 .book-list > div {
   flex: 0 0 50%; /*demo*/
+}
+.book-detail {
+  margin: 50px;
+}
+.cont {
+  display: flex;
+}
+.members-elig {
+  justify-content: space-between;
 }
