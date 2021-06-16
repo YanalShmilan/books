@@ -8,15 +8,22 @@ import BooksList from './components/BooksList';
 import BooksDetails from './components/BooksDetails';
 import BookItem from './components/BookItem';
 import NavBar from './components/NavBar';
+import React from "react"
 
 function App() {
-  return (
+  return ( 
+  <div>
+
     <div className="App">
-  
+    {/* <NavBar /> */}
       <Switch>
-      <Route path="/members/:slug">
-          <MemberDetails />
+        
+      {/* <Route path="/members">
+          <MembersList />
         </Route>
+        <Route path="/books">
+          <BooksList />
+        </Route> */}
         <Route path="/members/:slug">
           <MemberDetails />
         </Route>
@@ -30,7 +37,7 @@ function App() {
           <BooksList />
         </Route>
       </Switch>
-    </div>
+    </div></div>
   );
 }
 

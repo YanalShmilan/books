@@ -54,7 +54,9 @@ const BooksList = () => {
   return (
     <div>
       search:{' '}
-      <input
+      <input 
+      
+      class="form-control mr-sm-2"  aria-label="Search"
         name="query"
         placeholder="search"
         type="search"
@@ -62,22 +64,24 @@ const BooksList = () => {
       ></input>
       <div className="book-list">{books}</div>
       <form onSubmit={handleSubmit}>
-        author:{' '}
+        Author: {' '}
         <input
+        style={{width:"20%" ,margin:"10px" , gap:"2px" }}
           value={book.author}
           name="author"
           onChange={handleChange}
         ></input>
-        title:{' '}
-        <input value={book.title} name="title" onChange={handleChange}></input>
-        genre: sepreate by a coma{' '}
-        <input value={book.genre} name="genre" onChange={handleChange}></input>
-        available{' '}
-        <select name="available" onChange={handleChange}>
-          <option value={true}>available</option>
-          <option value={false}>not Available</option>
+        Title: {' '}
+        <input style={{width:"20%" , margin:"10px"}} value={book.title} name="title" onChange={handleChange}></input>
+       Genre: {' '}
+        <input style={{width:"20%",margin:"10px" }}value={book.genre} name="genre" onChange={handleChange}></input>
+        Available {' '}
+        <select style={{width:"10%"}} class="custom-select" id="inputGroupSelect01" onChange={handleChange}>
+        <option selected style={{fontFamily:"sans-serif"}}>Choose...</option>
+          <option value={true}>Available</option>
+          <option value={false}>Not Available</option>
         </select>
-        <button type="submit">Add Book</button>
+        <button style={{width:"7%"}} type="button" class="btn btn-primary btn-lg">Add Book</button>
       </form>{' '}
     </div>
   );
