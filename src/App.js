@@ -25,7 +25,7 @@ function App() {
         </Route>
 
         <Route path="/">
-          <BookItem />
+          {/* <BookItem /> */}
           <MembersList />
           <BooksList />
         </Route>
