@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { returnBook, borrowBook } from '../store/actions';
 
 const BooksDetails = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const { slug } = useParams();
   let members = useSelector((state) => state.members);
@@ -18,9 +19,9 @@ const BooksDetails = () => {
       }
     })
     .map((member) => (
-      <li>
+      <div>
         <Link to={`/members/${member.slug}`}>{member.firstName}</Link>
-      </li>
+      </div>
     ));
   let eligibleMembers = members
     .filter((member) => {
@@ -45,38 +46,85 @@ const BooksDetails = () => {
     .map((member) => (
       <li>
         {member.firstName}
+        {'    '}
         <button onClick={() => dispatch(borrowBook(bookToFind.id, member.id))}>
           Borrow
         </button>
       </li>
     ));
-  console.log(eligibleMembers);
 
   const setView = () => {
     if (!bookToFind.available) {
       return (
-        <div>
-          The book is currently borrowed by :{' '}
-          {borrowedMembers[borrowedMembers.length - 1]}-
+        <p>
+          The book is currently borrowed by :
+          {borrowedMembers[borrowedMembers.length - 1]}
           <button onClick={() => dispatch(returnBook(bookToFind.id))}>
             Return book
           </button>
-        </div>
+        </p>
       );
     } else {
-      console.log(eligibleMembers);
-      return <div> {eligibleMembers}</div>;
+      return <span> {eligibleMembers}</span>;
     }
   };
   return (
-    <div>
-      <li>Title: {bookToFind.title}</li>
-      <li>Author: {bookToFind.author}</li>
-      <li>Genre: {bookToFind.genre}</li>
-      <li>Available: {bookToFind.available ? 'Yes' : 'No'}</li>
-      <li>Borrowed By: {borrowedMembers}</li>
-      {setView()}
-    </div>
+    <center>
+      <div className="book-detail">
+        <figure class="book">
+          <ul class="hardcover_front">
+            <li>
+              <img src={bookToFind.img} alt="" width="100%" height="100%" />
+            </li>
+            <li></li>
+          </ul>
+
+          <ul class="page">
+            <li></li>
+            <li>
+              <a className="btn" href="">
+                {bookToFind.available ? (
+                  <span style={{ color: 'green' }}>available</span>
+                ) : (
+                  <span style={{ color: 'red' }}>Not available</span>
+                )}
+              </a>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+
+          <ul class="hardcover_back">
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="book_spine">
+            <li></li>
+            <li></li>
+          </ul>
+          <figcaption>
+            <h1>{bookToFind.title}</h1>
+            <span>By {bookToFind.author}</span>
+            <span>Genre: {bookToFind.genre.toString().split(' ')}</span>
+            <p>
+              Status:{' '}
+              {bookToFind.available ? (
+                <span style={{ color: 'green' }}>available</span>
+              ) : (
+                <span style={{ color: 'red' }}>Not available</span>
+              )}
+            </p>
+            <span>Borrowed Before By: {borrowedMembers}</span>
+            <span className="cont">
+              <ul className="members-elig">{setView()}</ul>
+            </span>
+            <br />
+            <button onClick={() => history.goBack()}>Go Back</button>
+          </figcaption>
+        </figure>
+      </div>
+    </center>
   );
 };
 
