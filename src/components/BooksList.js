@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { addBook } from '../store/actions';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import BookItem from './BookItem';
 
 const BooksList = () => {
   const dispatch = useDispatch();
@@ -23,11 +24,8 @@ const BooksList = () => {
       book.genre.toString().toLowerCase().includes(query.toLowerCase())
     ) {
       return (
-        <div>
-          <Link to={`/books/${book.slug}`}>
-            <p>{book.title}</p> - <p>{book.genre}</p> -
-            <p>{book.available ? 'available' : 'not available'}</p>
-          </Link>
+        <div className="book-item">
+          <BookItem book={book} />
         </div>
       );
     }
@@ -62,7 +60,7 @@ const BooksList = () => {
         type="search"
         onChange={(event) => setQuery(event.target.value)}
       ></input>
-      {books}
+      <div className="book-list">{books}</div>
       <form onSubmit={handleSubmit}>
         author:{' '}
         <input
