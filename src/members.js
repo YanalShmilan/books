@@ -20,7 +20,7 @@ const members = [
   {
     id: 3,
     firstName: 'Alhamza',
-    lastName: 'Abdulmonem',
+    lastName: 'Abdulmnem',
     slug: 'alhmaza-abdulmonem',
     currentlyBorrowedBooks: [1, 2],
     membership: 'silver', // can borrow 2 books
@@ -50,7 +50,7 @@ const members = [
     lastName: 'madry',
     slug: 'Zeinab-madry',
     currentlyBorrowedBooks: [10, 7, 8],
-    membership: 'sliver', // can borrow 5 books
+    membership: 'gold', // can borrow 5 books
     img: 'https://i.ibb.co/7rH3q5p/free-photo-girl-woman-young-avatar-muslim-female-hijab-max-pixel-islamic-women-png-720-720.png',
   },
 ];

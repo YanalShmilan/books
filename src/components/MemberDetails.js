@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { Redirect } from 'react-router-dom';
 
 import {
   returnBook,
@@ -29,6 +30,17 @@ const MemberDetails = () => {
   const handleShow = () => setShow(true);
 
   let memberDetail = members.find((member) => member.slug === slug);
+  if (memberDetail === undefined) {
+    memberDetail = {
+      id: '',
+      firstName: '',
+      lastName: '',
+      slug: '',
+      currentlyBorrowedBooks: '',
+      membership: '',
+      img: '',
+    };
+  }
   const [editMember, setEditMember] = useState({
     id: memberDetail.id,
     firstName: memberDetail.firstName,
@@ -38,7 +50,9 @@ const MemberDetails = () => {
     membership: memberDetail.membership,
     img: memberDetail.img,
   });
-
+  if (editMember.id === '') {
+    return <Redirect to="/404" />;
+  }
   let imgClass = '';
   if (memberDetail.membership === 'silver') {
     imgClass = 'img-silver';
@@ -104,7 +118,7 @@ const MemberDetails = () => {
         </Card>
         {borrowdBooks.length > 0 ? (
           <center>
-            Books borrowed by {memberDetail.firstName} :
+            Books currently borrowed by {memberDetail.firstName} :
             <div className="book-list">{borrowdBooks}</div>
           </center>
         ) : (

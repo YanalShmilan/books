@@ -12,12 +12,17 @@ import BookItem from './components/BookItem';
 import NavBar from './components/NavBar';
 import React from 'react';
 import Home from './components/Home';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
     <div>
       <div className="App">
         <Switch>
+          <Route exact path="/">
+            <NavBar />
+            <Home />
+          </Route>
           <Route path="/members/:slug">
             <NavBar />
 
@@ -38,10 +43,15 @@ function App() {
 
             <BooksList />
           </Route>
-
-          <Route path="/">
+          <Route path="/404">
             <NavBar />
-            <Home />
+
+            <NotFound />
+          </Route>
+          <Route path="*">
+            <NavBar />
+
+            <NotFound />
           </Route>
         </Switch>
       </div>

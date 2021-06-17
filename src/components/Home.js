@@ -66,7 +66,7 @@ const Home = () => {
     .flat()
     .reduce((a, v) => (v === mostActiveUserObj.id ? a + 1 : a), 0);
 
-  console.log(occ);
+  console.log('occ', occ);
 
   return (
     <center>

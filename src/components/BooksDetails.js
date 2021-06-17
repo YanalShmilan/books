@@ -10,6 +10,7 @@ import {
 } from '../store/actions';
 import { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 import { Modal, Form, Button } from 'react-bootstrap';
 
 import MemberItem from './MemberItem';
@@ -24,6 +25,19 @@ const BooksDetails = () => {
   let books = useSelector((state) => state.books);
 
   let bookToFind = books.find((book) => book.slug === slug);
+  if (!bookToFind) {
+    bookToFind = {
+      id: '',
+      author: '',
+      title: '',
+      genre: '',
+      slug: '',
+      borrowedBy: '',
+      available: '',
+      img: '',
+    };
+  }
+
   const [book, setBook] = useState({
     id: bookToFind.id,
     author: bookToFind.author,
@@ -35,7 +49,9 @@ const BooksDetails = () => {
     img: bookToFind.img,
   });
   const [show, setShow] = useState(false);
-
+  if (book.id === '') {
+    return <Redirect to="/404" />;
+  }
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleChange = (event) => {
