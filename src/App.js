@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import { Route, Switch, Link,  } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+
+import { Route, Switch, Link } from 'react-router-dom';
 import { useState } from 'react';
 import MembersList from './components/MembersList';
 import MemberDetails from './components/MemberDetails';
@@ -8,36 +10,42 @@ import BooksList from './components/BooksList';
 import BooksDetails from './components/BooksDetails';
 import BookItem from './components/BookItem';
 import NavBar from './components/NavBar';
-import React from "react"
+import React from 'react';
+import Home from './components/Home';
 
 function App() {
-  return ( 
-  <div>
+  return (
+    <div>
+      <div className="App">
+        <Switch>
+          <Route path="/members/:slug">
+            <NavBar />
 
-    <div className="App">
-    {/* <NavBar /> */}
-      <Switch>
-        
-      {/* <Route path="/members">
-          <MembersList />
-        </Route>
-        <Route path="/books">
-          <BooksList />
-        </Route> */}
-        <Route path="/members/:slug">
-          <MemberDetails />
-        </Route>
-        <Route path="/books/:slug">
-          <BooksDetails />
-        </Route>
+            <MemberDetails />
+          </Route>
+          <Route path="/books/:slug">
+            <NavBar />
 
-        <Route path="/">
-          {/* <BookItem /> */}
-          <MembersList />
-          <BooksList />
-        </Route>
-      </Switch>
-    </div></div>
+            <BooksDetails />
+          </Route>
+          <Route path="/members">
+            <NavBar />
+
+            <MembersList />
+          </Route>
+          <Route path="/books">
+            <NavBar />
+
+            <BooksList />
+          </Route>
+
+          <Route path="/">
+            <NavBar />
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </div>
   );
 }
 

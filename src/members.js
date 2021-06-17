@@ -6,6 +6,7 @@ const members = [
     slug: 'aziz-alsaffar',
     currentlyBorrowedBooks: [3, 9],
     membership: 'gold', // can borrow 3 books
+    img: 'https://i.ibb.co/Bn5VxMn/free-photo-girl-woman-young-avatar-muslim-female-hijab-max-pixel-islamic-women-png-720-720.png',
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const members = [
     slug: 'hashim-behbehani',
     currentlyBorrowedBooks: [5],
     membership: 'gold', // can borrow 3 books
+    img: 'https://i.ibb.co/Bn5VxMn/free-photo-girl-woman-young-avatar-muslim-female-hijab-max-pixel-islamic-women-png-720-720.png',
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const members = [
     slug: 'alhmaza-abdulmonem',
     currentlyBorrowedBooks: [1, 2],
     membership: 'silver', // can borrow 2 books
+    img: 'https://i.ibb.co/Bn5VxMn/free-photo-girl-woman-young-avatar-muslim-female-hijab-max-pixel-islamic-women-png-720-720.png',
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const members = [
     slug: 'reem-alhasawi',
     currentlyBorrowedBooks: [],
     membership: 'platinum', // can borrow 5 books
+    img: 'https://i.ibb.co/7rH3q5p/free-photo-girl-woman-young-avatar-muslim-female-hijab-max-pixel-islamic-women-png-720-720.png',
   },
   {
     id: 5,
@@ -38,6 +42,16 @@ const members = [
     slug: 'laila-alkandery',
     currentlyBorrowedBooks: [10, 7, 8],
     membership: 'platinum', // can borrow 5 books
+    img: 'https://i.ibb.co/7rH3q5p/free-photo-girl-woman-young-avatar-muslim-female-hijab-max-pixel-islamic-women-png-720-720.png',
+  },
+  {
+    id: 6,
+    firstName: 'Zeinab',
+    lastName: 'madry',
+    slug: 'Zeinab-madry',
+    currentlyBorrowedBooks: [10, 7, 8],
+    membership: 'sliver', // can borrow 5 books
+    img: 'https://i.ibb.co/7rH3q5p/free-photo-girl-woman-young-avatar-muslim-female-hijab-max-pixel-islamic-women-png-720-720.png',
   },
 ];
 

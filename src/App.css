@@ -1,5 +1,14 @@
+/* * {
+  font-size: 10px;
+} */
+
 .App {
   text-align: center;
+}
+body {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(180deg, #c8c2bc, #c8c2bc, #c8c2bc, #c8c2bc);
+  height: 100vh;
 }
 .App-logo {
   height: 40vmin;
@@ -68,7 +77,6 @@ html {
 }
 
 body {
-  background: #ecf0f1;
   color: #34495e;
   font-family: 'Lato', 'Arial', sans-serif;
   font-weight: 400;
@@ -82,7 +90,7 @@ ul {
 }
 
 a {
-  color: #2c3e50;
+  color: #456c92;
   text-decoration: none;
 }
 
@@ -756,19 +764,45 @@ figcaption {
 
 figcaption h1 {
   margin: 0;
+  font-size: 25px;
 }
 
 figcaption span {
-  color: #16a085;
+  color: #45526c;
   padding: 0.6em 0 1em 0;
   display: block;
 }
 
 figcaption p {
-  color: #63707d;
+  color: #45526c;
   line-height: 1.3;
 }
+figcaption a {
+  color: #310b0b;
+  line-height: 1.3;
+}
+figcaption a:hover {
+  color: #046582;
+  text-decoration: none;
+}
+.container {
+  width: 100%;
+}
 
+.borrowd {
+  margin-left: 500px;
+}
+.search-spec {
+  margin-top: 250px;
+}
+.logo {
+  height: 50px;
+  width: 50px;
+}
+.brand {
+  margin-top: 4px;
+  font-size: 15px;
+}
 /* Media Queries */
 @media screen and (max-width: 37.8125em) {
   .align > li {
@@ -797,12 +831,48 @@ figcaption p {
   margin-right: 10%;
   flex-wrap: wrap;
 }
+.members-list {
+  display: flex;
+  margin-right: 10%;
+  flex-wrap: wrap;
+}
+.member-item {
+  width: 100%;
+  margin-top: 50px;
+}
 .book-item {
   width: 100%;
   margin-top: 50px;
 }
 .book-list > div {
   flex: 0 0 50%; /*demo*/
+}
+.members-list > div {
+  flex: 0 0 25%; /*demo*/
+}
+/* .chart-item {
+  width: 100%;
+  margin-top: 50px;
+}
+.chart-list {
+  display: flex;
+  margin-right: 10%;
+  flex-wrap: wrap;
+}
+.chart-list > div {
+  flex: 0 0 25%; /*demo*/
+/* } */
+.chart {
+  width: 50%;
+}
+.chart-sm {
+  width: 50%;
+  height: 50%;
+}
+
+.chart-item {
+  margin-left: 50px;
+  margin-right: 50px;
 }
 .book-detail {
   margin: 50px;
@@ -812,4 +882,90 @@ figcaption p {
 }
 .members-elig {
   justify-content: space-between;
+}
+.img-silver {
+  border: 10px solid silver;
+  border-radius: 50%;
+  border-top-left-radius: 50%;
+}
+.img-gold {
+  border: 10px solid gold;
+  border-radius: 50%;
+}
+.img-platinum {
+  border: 10px solid paleturquoise;
+  border-radius: 50%;
+}
+.users-row {
+  align-content: space-around;
+}
+.card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.member-book {
+  margin: 20px;
+  margin-right: 10%;
+  text-align: center;
+}
+input[type='search'] {
+  margin-top: 10px;
+  background: #ededed
+    url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat
+    9px center;
+  border: solid 1px #ccc;
+  padding: 9px 10px 9px 32px;
+  width: 30%;
+
+  -webkit-border-radius: 10em;
+  -moz-border-radius: 10em;
+  border-radius: 10em;
+
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+input[type='search']:focus {
+  width: 50%;
+  background-color: #fff;
+  border-color: #66cc75;
+
+  -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+  -moz-box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+  box-shadow: 0 0 5px rgba(109, 207, 246, 0.5);
+}
+
+input:-moz-placeholder {
+  color: #999;
+}
+input::-webkit-input-placeholder {
+  color: #999;
+}
+.btn-btee5 {
+  margin: 15px;
+  background-color: #cc9b6d;
+  border: 0px;
+  padding: 7px 20px 10px 20px;
+  text-decoration: none;
+  border-radius: 2px;
+  height: 38px;
+  text-align: center;
+  color: white;
+}
+.btn-btee5-red {
+  margin: 15px;
+  background-color: #f62459;
+  border: 0px;
+  padding: 7px 20px 10px 20px;
+  text-decoration: none;
+  border-radius: 2px;
+  height: 38px;
+  text-align: center;
+  color: white;
+}
+.btn-btee5:hover {
+  background-color: #f1ca89;
+}
+.btn-btee5-red:hover {
+  background-color: #cf000f;
 }

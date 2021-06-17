@@ -1,28 +1,35 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import {Button} from 'material-ui/core/Button';
-// import { AppBar } from '@material-ui/core'
-// import Typography from '@material-ui/core/Typography'
-// import { IconButton } from '@material-ui/core'
-// import Toolbar from '@material-ui/core/Toolbar'  
-// import MenuIcon from 'material-ui-icons/Menu';
+import { Link } from 'react-router-dom';
+const NavBar = () => {
+  return (
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <img src="https://i.ibb.co/hHZgsgH/logo.png" className="logo" />
+      <p className="brand">
+        مكتبة فلاح وبدوي
+        <br />
+        الجنة للبدو والكتب إلك{' '}
+      </p>
 
-// const NavBar = () => {
- 
- 
-//   return (
-//     <AppBar position="static">
-//   <Toolbar>
-//     <IconButton edge="start"  color="inherit" aria-label="menu">
-//       <MenuIcon />
-//     </IconButton>
-//     <Typography variant="h6">
-//       Home
-//     </Typography>
-//     <Button color="inherit">Login</Button>
-//   </Toolbar>
-// </AppBar>
-//   );
-// };
+      {/* <div class="collapse navbar-collapse" id="navbarNav"> */}
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <Link to="/" class="nav-link">
+            Home <span class="sr-only">(current)</span>
+          </Link>
+        </li>
+        <li class="nav-item">
+          <Link to="/books" class="nav-link">
+            Books
+          </Link>
+        </li>
+        <li class="nav-item">
+          <Link to="/members" class="nav-link">
+            Members
+          </Link>
+        </li>
+      </ul>
+      {/* </div> */}
+    </nav>
+  );
+};
 
-// export default NavBar;
+export default NavBar;
