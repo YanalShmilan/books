@@ -37,9 +37,9 @@ const BookItem = (props) => {
           <span>By {book.author}</span>
           <p>
             {book.available ? (
-              <span style={{ color: 'green' }}>available</span>
+              <span style={{ color: 'green' }}>Available</span>
             ) : (
-              <span style={{ color: 'red' }}>Not available</span>
+              <span style={{ color: 'red' }}>Not Available</span>
             )}
           </p>
         </figcaption>
