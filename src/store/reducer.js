@@ -91,7 +91,6 @@ const reducer = (state = initialState, action) => {
           return member;
         } else return member;
       });
-      console.log(newMemberss);
       return {
         ...state,
         books: newBookss,
@@ -110,24 +109,20 @@ const reducer = (state = initialState, action) => {
         members: newMembersss,
       };
     case DELETE_MEMBER:
-      let memberToDelet = state.members.find(
-        (member) => member.id === action.payload.memberId
-      );
       let resetBooks = state.books.map((book) => {
-        if (memberToDelet.currentlyBorrowedBooks.includes(book.id)) {
+        if (book.borrowedBy.slice(0, -1) === action.payload.memberId) {
           book.available = true;
-          book.borrowedBy = book.borrowedBy.filter(
-            (id) => id !== action.payload.memberId
-          );
-          return book;
-        } else {
-          return book;
         }
+
+        book.borrowedBy = book.borrowedBy.filter(
+          (id) => id !== action.payload.memberId
+        );
+        return book;
       });
       return {
         ...state,
         members: state.members.filter(
-          (member) => member.id != action.payload.memberId
+          (member) => member.id !== action.payload.memberId
         ),
         books: resetBooks,
       };

@@ -10,8 +10,8 @@ import MemberItem from './MemberItem';
 const Home = () => {
   const members = useSelector((state) => state.members);
   const books = useSelector((state) => state.books);
-  const avBooks = books.filter((book) => book.available === true).length;
-  const notAvBooks = books.filter((book) => book.available === false).length;
+  const avBooks = books.filter((book) => book.available).length;
+  const notAvBooks = books.filter((book) => !book.available).length;
   const goldMembers = members.filter(
     (member) => member.membership === 'gold'
   ).length;
@@ -42,27 +42,26 @@ const Home = () => {
       mostBorrowdBook = book;
     }
   });
-  let mostActiveMember = [];
-  books.forEach((book) => {
-    mostActiveMember.push(book.borrowedBy);
-  });
-  console.log(mostActiveMember);
+  const mostActiveMember = books.map((book) => book.borrowedBy);
+  console.log('mapping', mostActiveMember);
 
-  let mostActiveUserId = mostActiveMember.reduce(
-    (a, b, i, arr) =>
-      arr.filter((v) => v === a).length >= arr.filter((v) => v === b).length
-        ? a
-        : b,
-    null
+  const mostActiveUserId = mostActiveMember
+    .flat()
+    .reduce(
+      (a, b, i, arr) =>
+        arr.filter((v) => v === a).length >= arr.filter((v) => v === b).length
+          ? a
+          : b,
+      null
+    );
+  console.log('extracting id', mostActiveUserId);
+
+  const mostActiveUserObj = members.find(
+    (member) => member.id === mostActiveUserId
   );
-  console.log(mostActiveUserId);
+  console.log('object', mostActiveUserObj);
 
-  let mostActiveUserObj = members.find(
-    (member) => member.id === mostActiveUserId[0]
-  );
-  console.log('here', mostActiveMember.flat());
-
-  let occ = mostActiveMember
+  const occ = mostActiveMember
     .flat()
     .reduce((a, v) => (v === mostActiveUserObj.id ? a + 1 : a), 0);
 

@@ -46,7 +46,7 @@ const books = [
     slug: 'the-lean-startup',
     genre: ['Business', 'Entrepreneurship'],
     available: false,
-    borrowedBy: [4, 1, 2],
+    borrowedBy: [4, 2],
     img: 'https://images-na.ssl-images-amazon.com/images/I/81-QB7nDh4L.jpg',
   },
   {
